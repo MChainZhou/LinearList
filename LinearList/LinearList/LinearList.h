@@ -32,4 +32,12 @@ int listLenght(LinearList *list);
 void listAddValue(LinearList *list,LinearListNodeValue value);
 /** 线性表插入数据*/
 void listInsterValue(LinearList *list,LinearListNodeValue value, int index);
+/** 根据下标获取数据*/
+LinearListNodeValue listGet(LinearList *list, int index);
+/** 设置元素*/
+void listSet(LinearList *list,int index,LinearListNodeValue value);
+/** 删除元素*/
+void listDele(LinearList *list,int index);
+/** 删除某个值的所有数据*/
+void listDeleValue(LinearList *list,LinearListNodeValue value);
 #endif /* LinearList_h */

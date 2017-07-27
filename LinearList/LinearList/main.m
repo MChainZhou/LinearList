@@ -7,11 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LinearList.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
+        LinearList *list = listCreat(5);
+        listAddValue(list, 1);
+        listAddValue(list, 2);
+        listAddValue(list, 3);
+        listAddValue(list, 4);
+        listAddValue(list, 5);
+        
+        
+        listDele(list, 2);
+        
     }
     return 0;
 }

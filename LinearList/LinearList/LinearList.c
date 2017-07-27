@@ -15,11 +15,11 @@ LinearList *listCreat(int capacity){
     if (capacity < 0) {
         return NULL;
     }
-    LinearList *list = malloc(sizeof(LinearList));
+    LinearList * list = malloc(sizeof(LinearList));
     //当内存不够的时候有可能创建失败
     if (list) {
-        list->capacity = capacity;
         list->length = 0;
+        list->capacity = capacity;
         list->value = malloc(capacity * sizeof(LinearListNodeValue));
     }
     
@@ -54,6 +54,14 @@ int listLenght(LinearList *list){
     return list->length;
 }
 
+/** 根据下标获取数据*/
+LinearListNodeValue listGet(LinearList *list, int index){
+    if (list == NULL || index < 0 || index >= list->length) {
+        return 0;
+    }
+    return list->value[index];
+}
+
 /** 线性表插入数据*/
 void listInsterValue(LinearList *list,LinearListNodeValue value, int index){
     if (list == NULL || index < 0 || index > list->length || list->length == list->capacity) {
@@ -67,7 +75,7 @@ void listInsterValue(LinearList *list,LinearListNodeValue value, int index){
     list->value[index] = value;
     
     //数量增加
-    list->length += 1;
+    list->length ++;
     
 }
 
@@ -76,5 +84,44 @@ void listAddValue(LinearList *list,LinearListNodeValue value){
     listInsterValue(list, value, list->length);
 }
 
+/** 设置元素*/
+void listSet(LinearList *list,int index,LinearListNodeValue value){
+    if (list == NULL || index < 0 || index > list->length -1) {
+        return;
+    }
+    list->value[index] = value;
+    
+}
+/** 删除元素*/
+void listDele(LinearList *list,int index){
+    if (list == NULL || index < 0 || index > list->length -1) {
+        return;
+    }
+   
+    for (int i = index; i < list->length - 1; i ++) {
+        list->value[i] = list->value[i+1];
+    }
+    list->length --;
+}
+
+
+/** 删除某个值的所有数据*/
+void listDeleValue(LinearList *list,LinearListNodeValue value){
+    if (list == NULL) {
+        return;
+    }
+    
+    int removeCount = 0;
+    
+    for (int i = 0; i < list->length - 1; i ++) {
+        if (list->value[i] == value) {
+            removeCount ++;
+        }else{
+            list->value[i - removeCount] = list->value[i];
+        }
+    }
+    
+    list->length -= removeCount;
+}
 
 
