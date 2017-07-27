@@ -24,4 +24,12 @@ typedef struct {
 LinearList *listCreat(int capacity);
 /** 释放线性表*/
 void listReleas(LinearList *list);
+/** 清空线性表*/
+void listClear(LinearList *list);
+/** 获取线性表的长度*/
+int listLenght(LinearList *list);
+/** 线性表新增数据*/
+void listAddValue(LinearList *list,LinearListNodeValue value);
+/** 线性表插入数据*/
+void listInsterValue(LinearList *list,LinearListNodeValue value, int index);
 #endif /* LinearList_h */
