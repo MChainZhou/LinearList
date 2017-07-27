@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		18C236CA1F29893300E6B460 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C236C91F29893300E6B460 /* main.m */; };
+		18C236D21F298AA000E6B460 /* LinearList.c in Sources */ = {isa = PBXBuildFile; fileRef = 18C236D01F298AA000E6B460 /* LinearList.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		18C236C61F29893300E6B460 /* LinearList */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LinearList; sourceTree = BUILT_PRODUCTS_DIR; };
 		18C236C91F29893300E6B460 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		18C236D01F298AA000E6B460 /* LinearList.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = LinearList.c; sourceTree = "<group>"; };
+		18C236D11F298AA000E6B460 /* LinearList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinearList.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				18C236C91F29893300E6B460 /* main.m */,
+				18C236D01F298AA000E6B460 /* LinearList.c */,
+				18C236D11F298AA000E6B460 /* LinearList.h */,
 			);
 			path = LinearList;
 			sourceTree = "<group>";
@@ -119,6 +124,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18C236D21F298AA000E6B460 /* LinearList.c in Sources */,
 				18C236CA1F29893300E6B460 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
