@@ -76,7 +76,7 @@ LinearListNodeValue listGet(LinearList *list, int index){
 
 /** 线性表插入数据*/
 void listInsterValue(LinearList *list,LinearListNodeValue value, int index){
-    if (list == NULL || index < 0 || index > list->length || list->length == list->capacity) {
+    if (list == NULL || index < 0 || index > list->length) {
         return;
     }
     //扩容:实现可变数组
