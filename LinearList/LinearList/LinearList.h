@@ -11,14 +11,15 @@
 
 #include <stdio.h>
 
-typedef int LinearListNodeValue;
 
-//数组结构体->线性表
-typedef struct {
-    int capacity;
-    int length;
-    LinearListNodeValue * value;
-}LinearList;
+#ifndef LINEARKIST_STRUCT
+
+//数组里面的值的类型
+typedef void* LinearListNodeValue;
+//线性表结构体
+typedef void LinearList;
+#endif
+
 
 /** 定义一个线性表*/
 LinearList *listCreat(int capacity);

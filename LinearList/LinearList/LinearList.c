@@ -6,8 +6,20 @@
 //  Copyright © 2017年 apple. All rights reserved.
 //
 
+typedef void * LinearListNodeValue;
+
+//数组结构体->线性表
+typedef struct {
+    int capacity;
+    int length;
+    LinearListNodeValue * value;
+}LinearList;
+
+#define LINEARKIST_STRUCT
+
 #include "LinearList.h"
 #include <stdlib.h>
+#include <string.h>
 
 
 //定义一个函数创建线性表
@@ -67,6 +79,29 @@ void listInsterValue(LinearList *list,LinearListNodeValue value, int index){
     if (list == NULL || index < 0 || index > list->length || list->length == list->capacity) {
         return;
     }
+    //扩容:实现可变数组
+    //1.判断内存是否够用
+    if (list->length == list->capacity) {
+        //2.如果不够用就扩容
+        //2.1开辟一个新的空间
+        int newCapacity = list->capacity + 10;
+        LinearListNodeValue *newValue = malloc(sizeof(LinearListNodeValue) * newCapacity);
+        if (newValue == NULL) return;
+        //2.2把老的空间的里址赋值到新的空间里面去
+//        for (int i = 0; i < list->capacity; i ++) {
+//            newValue[i] = list->value[i];
+//        }
+        //1.目标  2.来源  3.字节
+        memcpy(newValue, list->value,sizeof(LinearListNodeValue)*list->capacity);
+        //2.3释放老的地址空间
+        free(list->value);
+        //2.4将新的地址址赋值给线性表
+        list->value = newValue;
+        list->capacity =  newCapacity;
+    }
+    
+    
+    
     //从index后所有的元素向后移动
     for (int i = list->length - 1; i >= index; i --) {
         list->value[i+1] = list->value[i];
